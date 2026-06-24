@@ -1,0 +1,175 @@
+/* ── About Me cards: size by content, not fixed height ── */
+.about-us-section-card .about-us-card {
+    height: auto !important;
+    min-height: auto !important;
+    padding: 40px 30px !important;
+    overflow: visible !important;
+}
+.about-us-section-card .about-us-card .card-head {
+    flex-wrap: wrap;
+}
+.about-us-section-card .about-us-card .card-head .card-title {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    flex-basis: 100% !important;
+}
+.about-us-section-card .about-us-card .card-para {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    margin-top: 15px !important;
+}
+
+/* ── Global font: Plus Jakarta Sans ── */
+body, h1, h2, h3, h4, h5, h6,
+p, a, span, li, td, th,
+input, textarea, button, select {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* ── Tighten section gaps (template default is 120px — too much) ── */
+.tmp-section-gap {
+    padding: 60px 0 !important;
+}
+.tmp-section-gapTop {
+    padding-top: 60px !important;
+}
+.tmp-section-gapBottom {
+    padding-bottom: 60px !important;
+}
+
+/* ── Footer: clip background image so it never overflows ── */
+.footer-area {
+    overflow: hidden !important;
+    padding-bottom: 40px !important;
+}
+.footer-bg-img {
+    pointer-events: none;
+}
+.footer-bg-img img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ── Clip decorative absolute pseudo-elements so they can't push scroll height ── */
+[class*="bg-vactor"]::after,
+[class*="bg-vactor"]::before {
+    display: none !important;
+}
+
+/* ── Every section clips its own overflow (decorative circles, SVGs, etc.) ── */
+section {
+    overflow: hidden;
+}
+
+/* ── Prevent horizontal scrollbar from any overflow ── */
+html, body {
+    overflow-x: hidden;
+}
+
+/* ── Sidebar single-contact icon: add red hover to match social-link style ── */
+.tmp-sidebar-area .short-contact-area .single-contact:hover i {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease;
+}
+.tmp-sidebar-area .short-contact-area .single-contact .information .number:hover {
+    color: var(--color-primary) !important;
+}
+
+/* ── Mobile menu social link hover – overflow:auto on .inner creates a new
+   stacking context that swallows the z-index:-1 ::after pseudo-element.
+   Override by painting the hover directly on the element. ── */
+.tmp-popup-mobile-menu .social-link a:hover {
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+.tmp-popup-mobile-menu .social-link a::after {
+    display: none !important;
+}
+
+/* ── Banner profile image: sit above the ::after gradient so all 4 rounded corners show ── */
+.banner-two-main-wrapper .banner-right-content .main-img img {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Banner "Finance" text: push both layers toward the bottom of the image ── */
+.banner-two-main-wrapper .banner-right-content .main-img .banner-big-text-1 {
+    top: auto !important;
+    bottom: 90px !important;
+}
+.banner-two-main-wrapper .banner-right-content .main-img .banner-big-text-2 {
+    bottom: 10px !important;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.75) !important;
+    paint-order: stroke fill;
+}
+
+/* ── Odometer counter: tabular nums prevent digit-width shift when landing on "1" ── */
+.stat-num, .odometer, .odometer-digit {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}
+.odometer.odometer-auto-theme .odometer-digit,
+.odometer.odometer-theme-default .odometer-digit {
+    min-width: 0.6em;
+    text-align: center;
+}
+
+/* ── Hide the unused scroll-progress SVG that renders as a huge circle ── */
+.tmp-progress-parent {
+    display: none !important;
+}
+
+/* ── Last section before footer: no double-gap ── */
+section:last-of-type,
+div.tmp-section-gap:last-of-type {
+    padding-bottom: 40px !important;
+}
+
+/* ── Fixed navbar ── */
+.tmp-header-area-start {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9999;
+    background: rgba(15, 15, 15, 0.96) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.3s ease;
+}
+
+/* ── Inner page hero bar – tight compact strip ── */
+.page-banner {
+    padding: 90px 0 22px !important;
+}
+
+/* ── Contact page overlap fix ──
+   Template sets section-head to position:sticky inside the contact wrapper
+   which causes it to float over the form fields. Override to static. */
+.contact-get-in-touch-wrap .get-in-touch-wrapper .section-head {
+    position: static !important;
+    top: auto !important;
+    padding-right: 0 !important;
+}
+
+.contact-get-in-touch-wrap .get-in-touch-wrapper {
+    overflow: visible !important;
+}
+
+.contact-inner {
+    position: static !important;
+}
+
+.contact-form-wrapper .form-group {
+    margin-bottom: 16px !important;
+}
+
+.contact-form-wrapper .form-group .input-field {
+    width: 100% !important;
+    display: block !important;
+}
