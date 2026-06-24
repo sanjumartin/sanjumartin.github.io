@@ -229,6 +229,18 @@ div.tmp-section-gap:last-of-type {
 /* ── Inner page hero bar – tight compact strip ── */
 .page-banner {
     padding: 90px 0 22px !important;
+    background: linear-gradient(135deg, rgba(20,20,20,1) 60%, rgba(233,77,53,0.15) 100%) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+}
+.page-banner .breadcrumb-item a {
+    color: rgba(255,255,255,0.5) !important;
+    text-decoration: none !important;
+}
+.page-banner .breadcrumb-item.active {
+    color: var(--color-primary) !important;
+}
+.page-banner .breadcrumb-item + .breadcrumb-item::before {
+    color: rgba(255,255,255,0.3) !important;
 }
 
 /* ── Contact page overlap fix ──
