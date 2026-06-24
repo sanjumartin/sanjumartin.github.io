@@ -3,7 +3,7 @@
     height: auto !important;
     min-height: auto !important;
     padding: 40px 30px !important;
-    overflow: visible !important;
+    overflow: hidden !important;
 }
 .about-us-section-card .about-us-card .card-head {
     flex-wrap: wrap;
@@ -27,6 +27,37 @@
     background: var(--color-gray-2) !important;
     padding: 40px 30px !important;
     transition: all 0.3s ease !important;
+}
+.about-us-card.tmponhover {
+    position: relative !important;
+    overflow: hidden !important;
+}
+.about-us-card.tmponhover::before {
+    content: "" !important;
+    position: absolute !important;
+    top: var(--y, 50%) !important;
+    left: var(--x, 50%) !important;
+    width: 200% !important;
+    height: 200% !important;
+    transform: translate(-50%, -50%) !important;
+    background: radial-gradient(var(--color-primary), transparent, transparent) !important;
+    border-radius: 20px !important;
+    opacity: 0 !important;
+    transition: opacity 0.5s ease, top 0s, left 0s !important;
+}
+.about-us-card.tmponhover:hover::before {
+    opacity: 1 !important;
+}
+.about-us-card.tmponhover::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 2px !important;
+    background: var(--color-gray-2) !important;
+    border-radius: 20px !important;
+}
+.about-us-card.tmponhover > * {
+    position: relative !important;
+    z-index: 2 !important;
 }
 .about-us-card:hover,
 .about-us-card.tmponhover:hover {
