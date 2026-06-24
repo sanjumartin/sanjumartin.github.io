@@ -13,10 +13,62 @@
     overflow-wrap: break-word !important;
     width: 100% !important;
     flex-basis: 100% !important;
+    color: var(--color-primary) !important;
 }
 .about-us-section-card .about-us-card .card-para {
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+    margin-top: 15px !important;
+}
+
+/* ── All about-us-card: consistent design & hover effect across all pages ── */
+.about-us-card {
+    border-radius: 20px !important;
+    background: var(--color-gray-2) !important;
+    padding: 40px 30px !important;
+    transition: all 0.3s ease !important;
+}
+.about-us-card:hover,
+.about-us-card.tmponhover:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+}
+.about-us-card .card-head {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+}
+.about-us-card .card-head .logo-img {
+    width: 45px !important;
+    height: 45px !important;
+    background: var(--color-primary) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 100px !important;
+    min-width: 45px !important;
+    transition: all 0.3s ease !important;
+}
+.about-us-card:hover .card-head .logo-img,
+.about-us-card.tmponhover:hover .card-head .logo-img {
+    transform: scale(1.05) !important;
+}
+.about-us-card .card-head .card-title {
+    color: var(--color-primary) !important;
+    font-family: var(--font-primary) !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 30px !important;
+    margin-bottom: 0 !important;
+    transition: all 0.3s ease !important;
+}
+.about-us-card .card-para {
+    color: rgba(255, 255, 255, 0.75) !important;
+    font-family: var(--font-secondary) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 26px !important;
     margin-top: 15px !important;
 }
 
