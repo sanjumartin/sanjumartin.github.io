@@ -103,6 +103,85 @@
     margin-top: 15px !important;
 }
 
+/* ── Contact info cards: match About card mouse-follow glow ── */
+.contact-info-block.tmponhover {
+    position: relative !important;
+    overflow: hidden !important;
+    background: var(--color-gray-2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    transform: none !important;
+    transition: all 0.3s ease !important;
+}
+.contact-info-block.tmponhover::before {
+    content: "" !important;
+    position: absolute !important;
+    top: var(--y, 50%) !important;
+    left: var(--x, 50%) !important;
+    width: 200% !important;
+    height: 200% !important;
+    transform: translate(-50%, -50%) !important;
+    background: radial-gradient(var(--color-primary), transparent, transparent) !important;
+    border-radius: 14px !important;
+    opacity: 0 !important;
+    transition: opacity 0.5s ease, top 0s, left 0s !important;
+}
+.contact-info-block.tmponhover:hover::before {
+    opacity: 1 !important;
+}
+.contact-info-block.tmponhover::after {
+    content: "" !important;
+    position: absolute !important;
+    inset: 2px !important;
+    background: var(--color-gray-2) !important;
+    border-radius: 12px !important;
+}
+.contact-info-block.tmponhover > * {
+    position: relative !important;
+    z-index: 2 !important;
+}
+.contact-info-block.tmponhover:hover {
+    border-color: var(--color-primary) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 1, 79, 0.2) !important;
+}
+.contact-info-block.tmponhover:hover .ci-icon {
+    transform: scale(1.05) !important;
+}
+.contact-info-block .ci-icon {
+    transition: all 0.3s ease !important;
+}
+
+/* ── Experience education/training cards: match Home card hover ── */
+.resume-widget .resume-single.tmponhover {
+    position: relative !important;
+    overflow: hidden !important;
+    background: var(--color-gray-2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px !important;
+    transition: all 0.3s ease !important;
+}
+.resume-widget .resume-single.tmponhover::before {
+    display: none !important;
+}
+.resume-widget .resume-single.tmponhover:hover::before {
+    display: none !important;
+}
+.resume-widget .resume-single.tmponhover::after {
+    display: none !important;
+}
+.resume-widget .resume-single.tmponhover > * {
+    position: relative !important;
+    z-index: 1 !important;
+}
+.resume-widget .resume-single.tmponhover:hover {
+    border-color: var(--color-primary) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 1, 79, 0.2) !important;
+}
+.resume-widget .resume-single.tmponhover:hover .time {
+    color: var(--color-primary) !important;
+}
+
 /* ── Global font: Plus Jakarta Sans ── */
 body, h1, h2, h3, h4, h5, h6,
 p, a, span, li, td, th,
