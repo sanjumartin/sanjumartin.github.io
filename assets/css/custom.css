@@ -277,7 +277,7 @@ p, span, li, td, th, .disc, .description {
 
 /* ── Banner hero section - subtle green gradient ── */
 .rpp-banner-two-area {
-    background: linear-gradient(135deg, #fafcfb 0%, #f5faf8 50%, #f0f8f5 100%) !important;
+    background: linear-gradient(135deg, #f3fbf7 0%, #e8f7ef 48%, #dff3ea 100%) !important;
     position: relative !important;
 }
 
@@ -289,8 +289,8 @@ p, span, li, td, th, .disc, .description {
     right: 0 !important;
     bottom: 0 !important;
     background:
-        radial-gradient(ellipse at 10% 20%, rgba(62, 180, 137, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 90% 80%, rgba(91, 201, 161, 0.03) 0%, transparent 50%) !important;
+        radial-gradient(ellipse at 10% 20%, rgba(62, 180, 137, 0.12) 0%, transparent 52%),
+        radial-gradient(ellipse at 90% 80%, rgba(91, 201, 161, 0.09) 0%, transparent 55%) !important;
     pointer-events: none !important;
     z-index: 0 !important;
     display: block !important;
@@ -670,6 +670,19 @@ section {
 /* ── Prevent horizontal scrollbar from any overflow ── */
 html, body {
     overflow-x: hidden;
+    background: linear-gradient(135deg, #f3fbf7 0%, #e8f7ef 48%, #dff3ea 100%) fixed !important;
+}
+
+/* ── Site canvas: soft green gradient instead of pure white ── */
+body,
+.about-content-area,
+.about-us-area,
+.tmp-skill-area,
+.get-in-touch-area,
+section.tmp-section-gap,
+.home-news-section,
+.home-blog-section {
+    background: linear-gradient(135deg, #f3fbf7 0%, #e8f7ef 48%, #dff3ea 100%) fixed !important;
 }
 
 /* ── Sidebar single-contact icon: add red hover to match social-link style ── */
@@ -765,6 +778,22 @@ div.tmp-section-gap:last-of-type {
     color: #cbd5e0 !important;
 }
 
+/* ── Card surfaces: softer than pure white against the gray canvas ── */
+.about-us-card,
+.about-us-card.tmponhover::after,
+.contact-info-block,
+.contact-info-block.tmponhover,
+.contact-info-block.tmponhover::after,
+.exp-card,
+.stat-box,
+.feature-card,
+.achievement-card,
+.award-card,
+.blog-card,
+.sidebar-widget {
+    background: #fbfcfe !important;
+}
+
 /* ── Contact page overlap fix ──
    Template sets section-head to position:sticky inside the contact wrapper
    which causes it to float over the form fields. Override to static. */
@@ -817,8 +846,8 @@ h2.text-brand-green,
     }
 
     .single-post-content {
-        padding-left: 40px !important;
-        padding-right: 40px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .single-post-content .row {
@@ -829,6 +858,11 @@ h2.text-brand-green,
     .single-post-content .row > [class*="col-"] {
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+
+    .single-post-content .col-lg-8 {
+        padding-left: 36px !important;
+        padding-right: 36px !important;
     }
 }
 
@@ -865,8 +899,8 @@ h2.text-brand-green,
     }
 
     .single-post-content {
-        padding-left: 40px !important;
-        padding-right: 40px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 
     .home-news-section .row,
@@ -881,6 +915,11 @@ h2.text-brand-green,
     .single-post-content .row > [class*="col-"] {
         padding-left: 0 !important;
         padding-right: 0 !important;
+    }
+
+    .single-post-content .col-lg-8 {
+        padding-left: 36px !important;
+        padding-right: 36px !important;
     }
 
     .single-post-content .post-header,
