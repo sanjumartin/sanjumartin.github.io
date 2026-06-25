@@ -23,11 +23,14 @@ const SiteData = {
         name:           "Sanjay Sharma",
         initials:       "Sanjay Sharma",
         tagline:        "Senior Manager – Investment Banking & Asset Management",
-        summary:        "Highly accomplished and results-driven Senior Process Manager with 14+ years of experience in the Investment Banking Service Industry, specialising in Asset Management, Performance Measurement, GIPS Compliance, and Operations Leadership.",
+        /* summary: shown as the hero paragraph on the homepage */
+        summary:        "Highly accomplished Senior Process Manager with <strong>14+ years</strong> of experience in Investment Banking — specialising in Asset Management, Performance Measurement, GIPS Compliance, and Operations Leadership.",
+        /* shortBio: one-line bio shown in the desktop sidebar on every page */
+        shortBio:       "14+ years in GIPS, Performance Measurement & Operations Leadership.",
         phone:          "",
         email:          "sanjumartin2014@gmail.com",
         linkedin:       "https://www.linkedin.com/in/sanjay-sharma-5072b68a/",
-        address:        "Faridabad-88, Haryana, India",
+        address:        "Faridabad, Haryana, India",
         dob:            "14 May 1988",
         gender:         "Male",
         maritalStatus:  "Married",
@@ -41,7 +44,7 @@ const SiteData = {
     stats: [
         { number: 14,  suffix: "+", label: "Years of Experience" },
         { number: 4,   suffix: "",  label: "Global Companies"    },
-        { number: 6,   suffix: "",  label: "Industry Awards"     },
+        { number: 60,   suffix: "",  label: "Industry Awards"     },
         { number: 11,  suffix: "+", label: "Team Members Led"    },
     ],
 

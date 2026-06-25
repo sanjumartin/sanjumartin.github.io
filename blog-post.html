@@ -66,6 +66,15 @@
         .back-to-blog:hover { gap: 10px; color: var(--color-primary); }
 
         #post-loading { text-align: center; padding: 80px 0; color: #718096; }
+
+        @media (max-width: 767px) {
+            .post-title { font-size: 22px; }
+            .post-body h2 { font-size: 18px; }
+            .post-body h3 { font-size: 16px; }
+            .blog-sidebar { position: static; margin-top: 8px; }
+            .sidebar-widget { padding: 20px; }
+            .page-banner { padding: 80px 0 16px; }
+        }
     </style>
 </head>
 <body>
@@ -108,12 +117,12 @@
         </div>
     </header>
 
-    <!-- SIDEBAR PANEL -->
+    <!-- SIDEBAR -->
     <div class="d-none d-xl-block">
         <div class="tmp-sidebar-area tmp_side_bar">
             <div class="inner">
                 <div class="top-area">
-                    <span style="font-size:18px;font-weight:800;color:#1a202c;">Sanjay Sharma</span>
+                    <span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                     <div class="close-icon-area"><button class="tmp-round-action-btn close_side_menu_active"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <div class="content-wrapper">
@@ -121,6 +130,7 @@
                     <h5 class="title mt--10">Senior Manager – Investment Banking & Asset Management</h5>
                     <p class="disc">14+ years in GIPS, Performance Measurement & Operations Leadership.</p>
                     <div class="short-contact-area">
+                        <!-- <div class="single-contact"><i class="fa-solid fa-phone"></i><div class="information tmp-link-animation"><span>Phone</span><a href="tel:+919503085944" class="number">+91 9503085944</a></div></div> -->
                         <div class="single-contact"><i class="fa-solid fa-envelope"></i><div class="information tmp-link-animation"><span>Email</span><a href="mailto:Sanjumartin2014@gmail.com" class="number">Sanjumartin2014@gmail.com</a></div></div>
                         <div class="single-contact"><i class="fa-solid fa-location-crosshairs"></i><div class="information tmp-link-animation"><span>Location</span><span class="number">Faridabad, Haryana, India</span></div></div>
                     </div>
@@ -142,7 +152,7 @@
         <div class="tmp-popup-mobile-menu">
             <div class="inner">
                 <div class="header-top">
-                    <span style="font-size:18px;font-weight:800;color:#1a202c;">Sanjay Sharma</span>
+                    <span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                     <div class="close-menu"><button class="close-button tmp-round-action-btn"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <ul class="tmp-mainmenu">
@@ -151,7 +161,7 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="awards.html">Awards</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li class="current"><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="social-wrapper mt--40">
@@ -297,7 +307,17 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="site-data.js"></script>
     <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <script src="assets/js/vendor/waypoints.min.js"></script>
+    <script src="assets/js/vendor/appear.js"></script>
+    <script src="assets/js/plugins/gsap.js"></script>
+    <script src="assets/js/plugins/splittext.js"></script>
+    <script src="assets/js/plugins/scrolltigger.js"></script>
+    <script src="assets/js/plugins/scrolltoplugins.js"></script>
+    <script src="assets/js/plugins/smoothscroll.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/populate-site-data.js"></script>
 

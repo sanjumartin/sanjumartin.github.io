@@ -56,8 +56,25 @@
         .sidebar-tags { display: flex; flex-wrap: wrap; gap: 8px; }
         .sidebar-tag { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 5px 14px; font-size: 12px; color: #4a5568; text-decoration: none; transition: all 0.2s; }
         .sidebar-tag:hover { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+        .sidebar-tag.active, .sidebar-categories li a.active { background: var(--color-primary) !important; border-color: var(--color-primary) !important; color: #fff !important; font-weight: 700; }
+        .sidebar-categories li a.active { padding: 2px 10px; border-radius: 20px; }
+
+        .filter-bar { display:flex; align-items:center; gap:10px; margin-bottom:24px; flex-wrap:wrap; }
+        .filter-bar .filter-label { font-size:13px; color:#718096; }
+        .filter-active-pill { display:inline-flex; align-items:center; gap:6px; background:rgba(62,180,137,0.12); border:1px solid var(--color-primary); color:var(--color-primary); border-radius:30px; padding:4px 14px; font-size:13px; font-weight:600; }
+        .filter-active-pill .clear-filter { cursor:pointer; font-size:15px; line-height:1; opacity:0.7; transition:opacity .2s; }
+        .filter-active-pill .clear-filter:hover { opacity:1; }
+        .no-posts { text-align:center; padding:60px 0; color:#718096; }
 
         #blog-list-loading { text-align: center; padding: 60px 0; color: #718096; }
+
+        @media (max-width: 767px) {
+            .blog-card { padding: 20px; }
+            .blog-sidebar { position: static; margin-top: 8px; }
+            .sidebar-widget { padding: 20px; }
+            .page-banner { padding: 80px 0 16px; }
+            .page-banner h1 { font-size: 26px; }
+        }
     </style>
 </head>
 <body>
@@ -100,12 +117,12 @@
         </div>
     </header>
 
-    <!-- SIDEBAR PANEL -->
+    <!-- SIDEBAR -->
     <div class="d-none d-xl-block">
         <div class="tmp-sidebar-area tmp_side_bar">
             <div class="inner">
                 <div class="top-area">
-                    <span style="font-size:18px;font-weight:800;color:#1a202c;">Sanjay Sharma</span>
+                    <span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                     <div class="close-icon-area"><button class="tmp-round-action-btn close_side_menu_active"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <div class="content-wrapper">
@@ -113,6 +130,7 @@
                     <h5 class="title mt--10">Senior Manager – Investment Banking & Asset Management</h5>
                     <p class="disc">14+ years in GIPS, Performance Measurement & Operations Leadership.</p>
                     <div class="short-contact-area">
+                        <!-- <div class="single-contact"><i class="fa-solid fa-phone"></i><div class="information tmp-link-animation"><span>Phone</span><a href="tel:+919503085944" class="number">+91 9503085944</a></div></div> -->
                         <div class="single-contact"><i class="fa-solid fa-envelope"></i><div class="information tmp-link-animation"><span>Email</span><a href="mailto:Sanjumartin2014@gmail.com" class="number">Sanjumartin2014@gmail.com</a></div></div>
                         <div class="single-contact"><i class="fa-solid fa-location-crosshairs"></i><div class="information tmp-link-animation"><span>Location</span><span class="number">Faridabad, Haryana, India</span></div></div>
                     </div>
@@ -134,7 +152,7 @@
         <div class="tmp-popup-mobile-menu">
             <div class="inner">
                 <div class="header-top">
-                    <span style="font-size:18px;font-weight:800;color:#1a202c;">Sanjay Sharma</span>
+                    <span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                     <div class="close-menu"><button class="close-button tmp-round-action-btn"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <ul class="tmp-mainmenu">
@@ -143,7 +161,7 @@
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="skills.html">Skills</a></li>
                     <li><a href="awards.html">Awards</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li class="current"><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
                 <div class="social-wrapper mt--40">
@@ -181,6 +199,7 @@
                     <i class="fa-regular fa-spinner fa-spin" style="font-size:28px;color:var(--color-primary);"></i>
                     <p style="margin-top:12px;">Loading posts…</p>
                 </div>
+                <div id="filter-bar" class="filter-bar" style="display:none;"></div>
                 <div id="blog-list"></div>
             </div>
 
@@ -275,7 +294,17 @@
 
     <script src="site-data.js"></script>
     <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <script src="assets/js/vendor/waypoints.min.js"></script>
+    <script src="assets/js/vendor/appear.js"></script>
+    <script src="assets/js/plugins/gsap.js"></script>
+    <script src="assets/js/plugins/splittext.js"></script>
+    <script src="assets/js/plugins/scrolltigger.js"></script>
+    <script src="assets/js/plugins/scrolltoplugins.js"></script>
+    <script src="assets/js/plugins/smoothscroll.js"></script>
     <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/populate-site-data.js"></script>
 
@@ -286,30 +315,73 @@
             return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
         }
 
+        let allPosts = [];
+        let activeFilter = null; // { type: 'category'|'tag', value: '...' }
+
+        function renderPosts(posts) {
+            const list = document.getElementById('blog-list');
+            const filterBar = document.getElementById('filter-bar');
+
+            // Filter bar
+            if (activeFilter) {
+                filterBar.style.display = 'flex';
+                filterBar.innerHTML = `
+                    <span class="filter-label">Showing:</span>
+                    <span class="filter-active-pill">
+                        ${activeFilter.type === 'category' ? '<i class="fa-regular fa-folder" style="margin-right:4px;"></i>' : '<i class="fa-regular fa-tag" style="margin-right:4px;"></i>'}
+                        ${activeFilter.value}
+                        <span class="clear-filter" id="clear-filter" title="Clear filter">&times;</span>
+                    </span>
+                    <span class="filter-label">${posts.length} post${posts.length !== 1 ? 's' : ''}</span>`;
+                document.getElementById('clear-filter').addEventListener('click', () => {
+                    activeFilter = null;
+                    updateActiveStates();
+                    renderPosts(allPosts);
+                });
+            } else {
+                filterBar.style.display = 'none';
+            }
+
+            if (posts.length === 0) {
+                list.innerHTML = `<div class="no-posts"><i class="fa-regular fa-face-sad-tear" style="font-size:36px;color:var(--color-primary);"></i><p style="margin-top:12px;">No posts found for this filter.</p></div>`;
+                return;
+            }
+
+            list.innerHTML = '';
+            posts.forEach(post => {
+                const tags = post.tags.map(t => `<span class="blog-tag">${t}</span>`).join('');
+                list.innerHTML += `
+                    <article class="blog-card">
+                        <div class="blog-meta">
+                            <span class="blog-category">${post.category}</span>
+                            <span class="blog-date"><i class="fa-regular fa-calendar" style="margin-right:4px;"></i>${formatDate(post.date)}</span>
+                            <span class="blog-read-time"><i class="fa-regular fa-clock" style="margin-right:4px;"></i>${post.readTime} read</span>
+                        </div>
+                        <h3><a href="blog-post.html?post=${post.slug}">${post.title}</a></h3>
+                        <p class="blog-desc">${post.description}</p>
+                        <div class="blog-tags">${tags}</div>
+                        <a class="read-more" href="blog-post.html?post=${post.slug}">Read Article <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                    </article>`;
+            });
+        }
+
+        function updateActiveStates() {
+            document.querySelectorAll('#sidebar-categories a').forEach(a => {
+                a.classList.toggle('active', activeFilter?.type === 'category' && activeFilter?.value === a.dataset.value);
+            });
+            document.querySelectorAll('#sidebar-tags .sidebar-tag').forEach(a => {
+                a.classList.toggle('active', activeFilter?.type === 'tag' && activeFilter?.value === a.dataset.value);
+            });
+        }
+
         fetch('blogs/index.json')
             .then(r => r.json())
             .then(posts => {
-                // Sort newest first
                 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                allPosts = posts;
 
-                // Render post cards
-                const list = document.getElementById('blog-list');
                 document.getElementById('blog-list-loading').style.display = 'none';
-                posts.forEach(post => {
-                    const tags = post.tags.map(t => `<span class="blog-tag">${t}</span>`).join('');
-                    list.innerHTML += `
-                        <article class="blog-card">
-                            <div class="blog-meta">
-                                <span class="blog-category">${post.category}</span>
-                                <span class="blog-date"><i class="fa-regular fa-calendar" style="margin-right:4px;"></i>${formatDate(post.date)}</span>
-                                <span class="blog-read-time"><i class="fa-regular fa-clock" style="margin-right:4px;"></i>${post.readTime} read</span>
-                            </div>
-                            <h3><a href="blog-post.html?post=${post.slug}">${post.title}</a></h3>
-                            <p class="blog-desc">${post.description}</p>
-                            <div class="blog-tags">${tags}</div>
-                            <a class="read-more" href="blog-post.html?post=${post.slug}">Read Article <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
-                        </article>`;
-                });
+                renderPosts(allPosts);
 
                 // Sidebar: recent posts (top 3)
                 const recentEl = document.getElementById('sidebar-recent');
@@ -328,7 +400,7 @@
                 Object.entries(catMap).sort().forEach(([cat, count]) => {
                     catEl.innerHTML += `
                         <li>
-                            <a href="#">${cat}</a>
+                            <a href="#" data-value="${cat}">${cat}</a>
                             <span class="cat-count">${count}</span>
                         </li>`;
                 });
@@ -337,7 +409,37 @@
                 const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
                 const tagsEl = document.getElementById('sidebar-tags');
                 allTags.forEach(tag => {
-                    tagsEl.innerHTML += `<a href="#" class="sidebar-tag">${tag}</a>`;
+                    tagsEl.innerHTML += `<a href="#" class="sidebar-tag" data-value="${tag}">${tag}</a>`;
+                });
+
+                // Category filter clicks
+                catEl.addEventListener('click', e => {
+                    const a = e.target.closest('a[data-value]');
+                    if (!a) return;
+                    e.preventDefault();
+                    const val = a.dataset.value;
+                    if (activeFilter?.type === 'category' && activeFilter?.value === val) {
+                        activeFilter = null;
+                    } else {
+                        activeFilter = { type: 'category', value: val };
+                    }
+                    updateActiveStates();
+                    renderPosts(activeFilter ? allPosts.filter(p => p.category === activeFilter.value) : allPosts);
+                });
+
+                // Tag filter clicks
+                tagsEl.addEventListener('click', e => {
+                    const a = e.target.closest('a[data-value]');
+                    if (!a) return;
+                    e.preventDefault();
+                    const val = a.dataset.value;
+                    if (activeFilter?.type === 'tag' && activeFilter?.value === val) {
+                        activeFilter = null;
+                    } else {
+                        activeFilter = { type: 'tag', value: val };
+                    }
+                    updateActiveStates();
+                    renderPosts(activeFilter ? allPosts.filter(p => p.tags.includes(activeFilter.value)) : allPosts);
                 });
             })
             .catch(() => {
