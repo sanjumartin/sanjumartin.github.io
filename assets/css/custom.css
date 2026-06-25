@@ -798,3 +798,74 @@ h2.text-brand-green,
 .section-head .title.text-brand-green {
     color: #3EB489 !important;
 }
+
+/* ══════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — phones (< 768px)
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+    /* ── Container: ensure consistent side padding ── */
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* ── Cards: reduce padding so content isn't cramped ── */
+    .about-us-card {
+        padding: 24px 20px !important;
+    }
+
+    /* ── Section gaps: tighter on mobile ── */
+    .tmp-section-gap {
+        padding: 40px 0 !important;
+    }
+
+    /* ── Blog listing cards (blog.html) ── */
+    .blog-card {
+        padding: 20px !important;
+    }
+    .blog-card h3 {
+        font-size: 17px !important;
+    }
+
+    /* ── Blog sidebar stacks below posts on mobile ── */
+    .blog-sidebar {
+        position: static !important;
+        margin-top: 8px !important;
+    }
+    .sidebar-widget {
+        padding: 20px !important;
+    }
+
+    /* ── Inner page banner: compact on phone ── */
+    .page-banner {
+        padding: 80px 0 16px !important;
+    }
+    .page-banner h1 {
+        font-size: 24px !important;
+    }
+
+    /* ── Homepage hero: reduce top margin on stacked columns ── */
+    .rpp-banner-two-area .col-lg-7 {
+        margin-top: 30px !important;
+    }
+
+    /* ── Homepage blog section header: stack title + button ── */
+    .about-content-area [style*="justify-content:space-between"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+
+    /* ── Stats grid: 2 per row on phones ── */
+    #stats-row .col-lg-3 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    /* ── Footer columns: full width on mobile ── */
+    .footer-main .col-lg-5,
+    .footer-main .col-lg-3,
+    .footer-main .col-lg-4 {
+        margin-bottom: 24px !important;
+    }
+}

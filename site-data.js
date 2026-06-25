@@ -44,7 +44,7 @@ const SiteData = {
     stats: [
         { number: 14,  suffix: "+", label: "Years of Experience" },
         { number: 4,   suffix: "",  label: "Global Companies"    },
-        { number: 60,   suffix: "",  label: "Industry Awards"     },
+        { number: 6,   suffix: "",  label: "Industry Awards"     },
         { number: 11,  suffix: "+", label: "Team Members Led"    },
     ],
 

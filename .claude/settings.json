@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api *)",
+      "PowerShell(gh api repos/sanjumartin/sanjumartin.github.io/deployments --jq '.[0:3] | .[] | {id: .id, environment: .environment, created_at: .created_at, updated_at: .updated_at}')",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)"
+    ]
+  }
+}

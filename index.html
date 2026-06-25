@@ -114,7 +114,7 @@
                     <div class="close-menu"><button class="close-button tmp-round-action-btn"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <ul class="tmp-mainmenu">
-                    <li><a href="index.html">Home</a></li>
+                    <li class="current"><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="skills.html">Skills</a></li>
@@ -238,6 +238,33 @@
         </div>
     </div>
 
+    <!-- NEWS & UPDATES SECTION -->
+    <div class="about-content-area" style="background:#ffffff;">
+        <div class="container tmp-section-gap">
+            <div class="row mb--30">
+                <div class="col-12">
+                    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+                        <div>
+                            <span style="font-size:13px;font-weight:600;color:var(--color-primary);letter-spacing:1px;text-transform:uppercase;">Stay Informed</span>
+                            <h2 style="font-size:32px;font-weight:800;color:#1a202c;margin:6px 0 0;">
+                                <a href="news.html" style="color:inherit;text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--color-primary)'" onmouseout="this.style.color='#1a202c'">News &amp; Updates</a>
+                            </h2>
+                        </div>
+                        <a href="news.html" class="tmp-btn hover-icon-reverse radius-round" style="flex-shrink:0;">
+                            <span class="icon-reverse-wrapper">
+                                <span class="btn-text">View All Updates</span>
+                                <span class="btn-icon"><i class="fa-sharp fa-regular fa-arrow-right"></i></span>
+                                <span class="btn-icon"><i class="fa-sharp fa-regular fa-arrow-right"></i></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Rendered from site-data.js → SiteData.news (latest 5) -->
+            <div id="home-news-list"></div>
+        </div>
+    </div>
+
     <!-- BLOGS SECTION -->
     <div class="about-content-area" style="background:#f8f9fa;">
         <div class="container tmp-section-gap">
@@ -339,6 +366,36 @@
     <!-- Auto-populate contact info from site-data.js -->
     <script src="assets/js/populate-site-data.js"></script>
 
+    <!-- News manifest + loader (for homepage News & Updates section) -->
+    <script src="news/manifest.js"></script>
+    <script src="news/news-loader.js"></script>
+    <script>
+    (function () {
+        var container = document.getElementById('home-news-list');
+        if (!container) return;
+        loadNews(function (items) {
+            if (!items.length) { container.innerHTML = ''; return; }
+            container.innerHTML = items.map(function (item, i) {
+                var color = TAG_COLORS[item.tag] || 'var(--color-primary)';
+                var border = i < items.length - 1 ? 'border-bottom:1px solid #e2e8f0;' : '';
+                var title = item.redirect
+                    ? '<a href="' + item.redirect + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">' + item.title + '</a>'
+                    : item.title;
+                return '<div style="display:flex;gap:20px;padding:18px 0;' + border + 'align-items:flex-start;flex-wrap:wrap;">' +
+                    '<div style="flex-shrink:0;min-width:140px;">' +
+                        '<span style="background:' + color + '1a;color:' + color + ';border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:inline-block;margin-bottom:4px;">' + item.tag + '</span><br>' +
+                        '<span style="font-size:12px;color:#a0aec0;font-weight:500;">' + formatNewsDate(item.date) + '</span>' +
+                    '</div>' +
+                    '<div style="flex:1;min-width:200px;">' +
+                        '<h4 style="font-size:15px;font-weight:700;color:#1a202c;margin:0 0 4px;line-height:1.4;">' + title + '</h4>' +
+                        '<p style="font-size:13px;color:#718096;margin:0;line-height:1.6;">' + item.description + '</p>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        }, 5);
+    })();
+    </script>
+
     <!-- Load latest 3 blog posts on homepage -->
     <script>
     (function () {
@@ -354,7 +411,7 @@
                 container.innerHTML = '';
                 posts.slice(0, 3).forEach(post => {
                     container.innerHTML += `
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6 col-12">
                             <a href="blog-post.html?post=${post.slug}" style="text-decoration:none;display:block;">
                                 <div class="about-us-card tmponhover" style="height:100%;">
                                     <div style="margin-bottom:14px;">

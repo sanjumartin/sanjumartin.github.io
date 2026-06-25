@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Awards and Recognition of Sanjay Sharma – Kaizen, Superstar, Best Manager.">
+    <meta name="description" content="News and updates from Sanjay Sharma – certifications, conferences, and professional achievements.">
     <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
-    <title>Awards | Sanjay Sharma</title>
+    <title>News &amp; Updates | Sanjay Sharma</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
@@ -16,21 +16,107 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <style>
-        .page-banner { padding:90px 0 22px; background: linear-gradient(135deg, rgba(20,20,20,1) 60%, rgba(233,77,53,0.15) 100%); border-bottom:1px solid rgba(255,255,255,0.06); }
-        .page-banner .breadcrumb-item a { color: rgba(255,255,255,0.5); text-decoration:none; }
-        .page-banner .breadcrumb-item.active { color:var(--color-primary); }
-        .page-banner .breadcrumb-item+.breadcrumb-item::before { color:rgba(255,255,255,0.3); }
-        .award-card { background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:36px 28px; height:100%; transition:border-color .3s,transform .3s; position:relative; overflow:hidden; }
-        .award-card::before { content:''; position:absolute; top:0; left:0; width:4px; height:100%; background:var(--color-primary); border-radius:4px 0 0 4px; }
-        .award-card:hover { border-color:var(--color-primary); transform:translateY(-5px); }
-        .award-card .award-icon { font-size:36px; color:var(--color-primary); margin-bottom:16px; }
-        .award-card .award-year { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary); margin-bottom:10px; }
-        .award-card h3 { font-size:20px; font-weight:700; color: #1a202c; margin-bottom:10px; }
-        .award-card .award-org { font-size:13px; color: #999999; }
-        .award-card .award-desc { font-size:14px; color: #777777; margin-top:12px; line-height:1.7; }
-        .highlight-banner { background:linear-gradient(135deg,rgba(233,77,53,0.12),rgba(233,77,53,0.04)); border:1px solid rgba(233,77,53,0.25); border-radius:16px; padding:40px; margin-bottom:60px; }
-        .highlight-banner h3 { color: #1a202c; font-size:22px; font-weight:700; margin-bottom:12px; }
-        .highlight-banner p { color: #777777; font-size:15px; margin:0; }
+        /* ── Timeline layout ── */
+        .news-timeline { position: relative; padding: 0; }
+        .news-timeline::before {
+            content: '';
+            position: absolute;
+            left: 119px;
+            top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--color-primary) 0%, #e2e8f0 100%);
+        }
+        .news-entry {
+            display: flex;
+            gap: 0;
+            align-items: flex-start;
+            padding: 32px 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+        }
+        .news-entry:last-child { border-bottom: none; }
+
+        /* Date column – fixed width on left */
+        .news-date-col {
+            flex-shrink: 0;
+            width: 120px;
+            text-align: right;
+            padding-right: 24px;
+            padding-top: 2px;
+        }
+        .news-day {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--color-primary);
+            line-height: 1;
+            display: block;
+        }
+        .news-month {
+            font-size: 12px;
+            color: #a0aec0;
+            font-weight: 600;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* Dot on the line */
+        .news-dot {
+            flex-shrink: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--color-primary);
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px var(--color-primary);
+            margin-top: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Content column */
+        .news-content-col {
+            flex: 1;
+            padding-left: 24px;
+        }
+        .news-tag {
+            display: inline-block;
+            border-radius: 20px;
+            padding: 3px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .news-tag.tag-certification { background: rgba(62,180,137,.12); color: #3EB489; }
+        .news-tag.tag-conference    { background: rgba(74,144,217,.12); color: #4A90D9; }
+        .news-tag.tag-achievement   { background: rgba(230,126,34,.12); color: #E67E22; }
+        .news-tag.tag-update        { background: rgba(155,89,182,.12); color: #9B59B6; }
+        .news-content-col h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        .news-content-col p {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Mobile: stack date above content */
+        @media (max-width: 767px) {
+            .news-timeline::before { display: none; }
+            .news-entry { flex-wrap: wrap; gap: 12px; }
+            .news-date-col { width: auto; text-align: left; padding-right: 0; display: flex; align-items: center; gap: 12px; }
+            .news-day { font-size: 24px; }
+            .news-dot { display: none; }
+            .news-content-col { padding-left: 0; width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -39,23 +125,25 @@
     <header class="tmp-header-area-start header-one header--sticky header--transparent">
         <div class="container"><div class="row"><div class="col-lg-12">
             <div class="header-content">
-                <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color: #1a202c;letter-spacing:1px;">SS</span></a></div>
+                <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color:#1a202c;letter-spacing:1px;">SS</span></a></div>
                 <nav class="tmp-mainmenu-nav d-none d-xl-block">
                     <ul class="tmp-mainmenu">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="experience.html">Experience</a></li>
                         <li><a href="skills.html">Skills</a></li>
-                        <li class="current"><a href="awards.html">Awards</a></li>
+                        <li><a href="awards.html">Awards</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </nav>
                 <div class="tmp-header-right">
-                    <div class="social-share-wrapper d-none d-md-block"><div class="social-link">
-                        <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
-                    </div></div>
+                    <div class="social-share-wrapper d-none d-md-block">
+                        <div class="social-link">
+                            <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                        </div>
+                    </div>
                     <div class="actions-area">
                         <div class="tmp-side-collups-area d-none d-xl-block"><button class="tmp-menu-bars tmp_button_active"><i class="fa-regular fa-bars-staggered"></i></button></div>
                         <div class="tmp-side-collups-area d-block d-xl-none"><button class="tmp-menu-bars humberger_menu_active"><i class="fa-regular fa-bars-staggered"></i></button></div>
@@ -108,7 +196,7 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="experience.html">Experience</a></li>
                     <li><a href="skills.html">Skills</a></li>
-                    <li class="current"><a href="awards.html">Awards</a></li>
+                    <li><a href="awards.html">Awards</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -128,36 +216,23 @@
         <div class="container">
             <nav aria-label="breadcrumb"><ol class="breadcrumb mb--10">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active">Awards</li>
+                <li class="breadcrumb-item active">News &amp; Updates</li>
             </ol></nav>
-            <h1 class="title" style="font-size:48px;font-weight:800;color: #1a202c;margin:0;">Awards &amp; Recognition</h1>
+            <h1 class="title" style="font-size:48px;font-weight:800;color:#1a202c;margin:0;">News &amp; Updates</h1>
         </div>
     </div>
 
-    <!-- AWARDS CONTENT -->
+    <!-- NEWS CONTENT -->
     <section class="tmp-section-gap">
         <div class="container">
             <div class="section-head text-center mb--60">
-                <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1"><span class="subtitle">Recognition</span></div>
-                <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2">Consistent Excellence &amp; Recognition</h2>
-                <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">Recognised multiple times across organisations for superior contributions, process innovation, and outstanding leadership.</p>
+                <div class="section-sub-title center-title tmp-scroll-trigger tmp-fade-in animation-order-1"><span class="subtitle">Professional Journey</span></div>
+                <h2 class="title split-collab tmp-scroll-trigger tmp-fade-in animation-order-2" style="color:#1a202c;">Certifications, Conferences &amp; Milestones</h2>
+                <p class="description section-sm tmp-scroll-trigger tmp-fade-in animation-order-3">A running log of professional achievements, training completions, and industry engagements — newest first.</p>
             </div>
 
-            <!-- Key highlight banner -->
-            <div class="highlight-banner tmp-scroll-trigger tmp-fade-in animation-order-1">
-                <div class="row align-items-center g-4">
-                    <div class="col-lg-1 col-md-2 col-2 text-center">
-                        <i class="fa-solid fa-trophy" style="font-size:48px;color:var(--color-primary);"></i>
-                    </div>
-                    <div class="col-lg-11 col-md-10 col-10">
-                        <h3>Key Career Highlights</h3>
-                        <p>14+ years of experience in Asset Management, Asset Servicing &amp; Pensions (Performance Client Reporting &amp; GIPS). Successfully migrated GIPS &amp; QO activities team to AXABS from AXAIM Paris in 2015 &amp; 2019. Major contribution to the ALL Scope Fund to VDI initiative which saved 1 FTE of work for the GIPS team. Received a one-time Recognition Envelope in November 2018 — a monetary reward for recognising superior contributions.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Rendered from site-data.js → SiteData.awards -->
-            <div id="awards-list" class="row g-4"></div>
+            <!-- Timeline — rendered from site-data.js → SiteData.news -->
+            <div class="news-timeline" id="news-timeline"></div>
         </div>
     </section>
 
@@ -169,7 +244,7 @@
                     <div class="col-lg-5 col-md-6">
                         <div class="single-footer-wrapper border-right mr--20">
                             <div class="logo mb--20"><a href="index.html" style="text-decoration:none;"><span style="font-size:24px;font-weight:800;color: #1a202c;">Sanjay Sharma</span></a></div>
-                            <p class="description" style="font-size:14px;color: #888888;">Senior Manager — Investment Banking & Asset Management.</p>
+                            <p class="description" style="font-size:14px;color:#888888;">Senior Manager — Investment Banking & Asset Management.<br>14+ years of global expertise in GIPS & Operations.</p>
                             <div class="social-link mt--20">
                                 <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
                                 <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
@@ -229,23 +304,42 @@
 
     <!-- Auto-populate contact info from site-data.js -->
     <script src="assets/js/populate-site-data.js"></script>
+
+    <!-- News manifest + loader -->
+    <script src="news/manifest.js"></script>
+    <script src="news/news-loader.js"></script>
+
+    <!-- Render news timeline from manifest -->
     <script>
-        const awardIcons = ['fa-lightbulb','fa-medal','fa-handshake','fa-star','fa-rocket','fa-crown','fa-trophy','fa-award'];
-        const awardsList = document.getElementById('awards-list');
-        if (awardsList && typeof SiteData !== 'undefined') {
-            // Reverse the array to show latest first
-            const reversedAwards = [...SiteData.awards].reverse();
-            awardsList.innerHTML = reversedAwards.map((a, i) => `
-                <div class="col-lg-4 col-md-6">
-                    <div class="award-card">
-                        <div class="award-icon"><i class="fa-solid ${awardIcons[i % awardIcons.length]}"></i></div>
-                        <div class="award-year">${a.year}</div>
-                        <h3>${a.title}</h3>
-                        <div class="award-org">${a.org}</div>
-                    </div>
-                </div>
-            `).join('');
-        }
+    (function () {
+        var timeline = document.getElementById('news-timeline');
+        if (!timeline) return;
+
+        timeline.innerHTML = '<div style="text-align:center;padding:40px 0;color:#718096;"><i class="fa-regular fa-spinner fa-spin" style="font-size:24px;color:var(--color-primary);"></i></div>';
+
+        loadNews(function (items) {
+            if (!items.length) { timeline.innerHTML = '<p style="color:#718096;text-align:center;padding:40px 0;">No news items found.</p>'; return; }
+            timeline.innerHTML = items.map(function (item) {
+                var tc = TAG_CLASSES[item.tag] || 'tag-update';
+                var title = item.redirect
+                    ? '<a href="' + item.redirect + '" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">' + item.title + '</a>'
+                    : item.title;
+                return '<div class="news-entry tmp-scroll-trigger tmp-fade-in">' +
+                    '<div class="news-date-col">' +
+                        '<span class="news-day">' + newsDay(item.date) + '</span>' +
+                        '<span class="news-month">' + newsMonthYear(item.date) + '</span>' +
+                    '</div>' +
+                    '<div class="news-dot"></div>' +
+                    '<div class="news-content-col">' +
+                        '<span class="news-tag ' + tc + '">' + item.tag + '</span>' +
+                        '<h3>' + title + '</h3>' +
+                        '<p>' + item.description + '</p>' +
+                    '</div>' +
+                '</div>';
+            }).join('');
+        });
+
+    })();
     </script>
 </body>
 </html>
