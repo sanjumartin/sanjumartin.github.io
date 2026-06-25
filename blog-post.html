@@ -71,9 +71,21 @@
             .post-title { font-size: 22px; }
             .post-body h2 { font-size: 18px; }
             .post-body h3 { font-size: 16px; }
-            .blog-sidebar { position: static; margin-top: 8px; }
-            .sidebar-widget { padding: 20px; }
-            .page-banner { padding: 80px 0 16px; }
+        }
+
+        @media (max-width: 1199px) {
+            .single-post-content > .row {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+            .single-post-content > .row > .col-lg-8 {
+                padding-left: 40px !important;
+                padding-right: 40px !important;
+            }
+            .single-post-content > .row > .col-lg-4 {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
         }
     </style>
 </head>
@@ -189,7 +201,7 @@
     </div>
 
     <!-- POST CONTENT -->
-    <div class="container tmp-section-gap">
+    <div class="container tmp-section-gap content-gutter single-post-content">
         <div class="row g-4">
 
             <!-- ARTICLE COLUMN -->

@@ -800,14 +800,110 @@ h2.text-brand-green,
 }
 
 /* ══════════════════════════════════════════════════════
+   RESPONSIVE PAGE GUTTERS
+   Keep text and generated content away from screen edges
+   as the viewport narrows.
+   ══════════════════════════════════════════════════════ */
+@media (max-width: 991px) {
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl,
+    .content-gutter {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .single-post-content {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .single-post-content .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .single-post-content .row > [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+
+/* ══════════════════════════════════════════════════════
    MOBILE RESPONSIVE — phones (< 768px)
    ══════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
 
     /* ── Container: ensure consistent side padding ── */
-    .container {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .container-xxl,
+    .content-gutter {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .container-fluid {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .content-gutter {
+        overflow-wrap: anywhere;
+    }
+
+    .home-news-section > .container,
+    .home-blog-section > .container {
+        padding-left: 24px !important;
+        padding-right: 24px !important;
+    }
+
+    .single-post-content {
+        padding-left: 40px !important;
+        padding-right: 40px !important;
+    }
+
+    .home-news-section .row,
+    .home-blog-section .row,
+    .single-post-content .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .home-news-section .row > [class*="col-"],
+    .home-blog-section .row > [class*="col-"],
+    .single-post-content .row > [class*="col-"] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .single-post-content .post-header,
+    .single-post-content .post-body,
+    .single-post-content .back-to-blog,
+    .single-post-content #post-loading,
+    .single-post-content #post-error {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #home-news-list > div {
+        gap: 12px !important;
+        padding: 22px 0 !important;
+    }
+
+    #home-news-list h4 {
+        font-size: 16px !important;
+        line-height: 1.45 !important;
+    }
+
+    #home-blog-list {
+        row-gap: 20px !important;
     }
 
     /* ── Cards: reduce padding so content isn't cramped ── */
@@ -843,6 +939,7 @@ h2.text-brand-green,
     }
     .page-banner h1 {
         font-size: 24px !important;
+        line-height: 1.2 !important;
     }
 
     /* ── Homepage hero: reduce top margin on stacked columns ── */
