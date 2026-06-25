@@ -1,3 +1,11 @@
+/* ── Banner image: remove dark gradient overlay (dark-theme leftover), show all 4 rounded corners ── */
+.banner-two-main-wrapper .banner-right-content .main-img::after {
+    display: none !important;
+}
+.banner-two-main-wrapper .banner-right-content .main-img img {
+    border-radius: 24px !important;
+}
+
 /* ── About Me cards: size by content, not fixed height ── */
 .about-us-section-card .about-us-card {
     height: auto !important;
