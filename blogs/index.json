@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "investment-banking-operations-excellence",
+    "title": "Operational Excellence in Investment Banking: Lessons from 14 Years",
+    "date": "2026-06-20",
+    "category": "Operations",
+    "tags": ["Operations", "Investment Banking", "Leadership", "Process Improvement"],
+    "description": "Key lessons from leading operations teams across global investment banking firms — what drives excellence, and what holds teams back.",
+    "readTime": "6 min"
+  },
+  {
+    "slug": "performance-measurement-attribution-basics",
+    "title": "Performance Measurement & Attribution: A Primer",
+    "date": "2026-06-10",
+    "category": "Performance",
+    "tags": ["Performance Measurement", "Attribution", "Asset Management", "Analytics"],
+    "description": "Breaking down the fundamentals of investment performance measurement and attribution analysis for finance professionals.",
+    "readTime": "5 min"
+  },
+  {
+    "slug": "gips-compliance-guide",
+    "title": "GIPS Compliance: A Practical Guide for Asset Managers",
+    "date": "2026-06-01",
+    "category": "GIPS",
+    "tags": ["GIPS", "Compliance", "Asset Management", "Standards"],
+    "description": "An overview of GIPS standards and how asset managers can achieve and maintain compliance in today's regulatory environment.",
+    "readTime": "7 min"
+  }
+]

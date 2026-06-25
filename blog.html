@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog – Sanjay Sharma writes about GIPS, Performance Measurement, Investment Banking, and Operations Leadership.">
+    <link rel="shortcut icon" type="image/png" href="assets/images/favicon.png">
+    <title>Blog | Sanjay Sharma</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/vendor/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/vendor/animate.min.css">
+    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <style>
+        .page-banner { padding: 90px 0 22px; background: linear-gradient(135deg, #f8f9fa 60%, rgba(62, 180, 137, 0.1) 100%); border-bottom: 1px solid #e2e8f0; }
+        .page-banner .breadcrumb-item a { color: #718096; text-decoration: none; }
+        .page-banner .breadcrumb-item.active { color: var(--color-primary); }
+        .page-banner .breadcrumb-item+.breadcrumb-item::before { color: #cbd5e0; }
+
+        /* Blog card */
+        .blog-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px; margin-bottom: 28px; transition: all 0.3s ease; }
+        .blog-card:hover { border-color: var(--color-primary); box-shadow: 0 8px 24px rgba(62,180,137,0.15); transform: translateY(-3px); }
+        .blog-card .blog-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+        .blog-card .blog-category { background: rgba(62,180,137,0.1); color: var(--color-primary); border-radius: 30px; padding: 4px 14px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase; }
+        .blog-card .blog-date { color: #718096; font-size: 13px; }
+        .blog-card .blog-read-time { color: #718096; font-size: 13px; }
+        .blog-card h3 { font-size: 20px; font-weight: 700; color: #1a202c; margin-bottom: 10px; line-height: 1.4; }
+        .blog-card h3 a { color: inherit; text-decoration: none; transition: color 0.2s; }
+        .blog-card h3 a:hover { color: var(--color-primary); }
+        .blog-card .blog-desc { color: #4a5568; font-size: 15px; line-height: 1.7; margin-bottom: 20px; }
+        .blog-card .blog-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+        .blog-card .blog-tag { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 3px 12px; font-size: 12px; color: #4a5568; }
+        .blog-card .read-more { display: inline-flex; align-items: center; gap: 6px; color: var(--color-primary); font-weight: 600; font-size: 14px; text-decoration: none; transition: gap 0.2s; }
+        .blog-card .read-more:hover { gap: 10px; }
+
+        /* Sidebar */
+        .blog-sidebar { position: sticky; top: 100px; }
+        .sidebar-widget { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; margin-bottom: 24px; }
+        .sidebar-widget .widget-title { font-size: 16px; font-weight: 700; color: #1a202c; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--color-primary); display: inline-block; }
+        .sidebar-recent-list { list-style: none; padding: 0; margin: 0; }
+        .sidebar-recent-list li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; }
+        .sidebar-recent-list li:last-child { border-bottom: none; padding-bottom: 0; }
+        .sidebar-recent-list li a { color: #2d3748; font-size: 14px; text-decoration: none; font-weight: 500; line-height: 1.5; transition: color 0.2s; display: block; }
+        .sidebar-recent-list li a:hover { color: var(--color-primary); }
+        .sidebar-recent-list .post-date { font-size: 12px; color: #a0aec0; margin-top: 2px; }
+        .sidebar-categories { list-style: none; padding: 0; margin: 0; }
+        .sidebar-categories li { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; }
+        .sidebar-categories li:last-child { border-bottom: none; }
+        .sidebar-categories li a { color: #4a5568; font-size: 14px; text-decoration: none; transition: color 0.2s; }
+        .sidebar-categories li a:hover { color: var(--color-primary); }
+        .sidebar-categories .cat-count { background: rgba(62,180,137,0.1); color: var(--color-primary); border-radius: 20px; padding: 2px 10px; font-size: 12px; font-weight: 600; }
+        .sidebar-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .sidebar-tag { background: #f7fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 5px 14px; font-size: 12px; color: #4a5568; text-decoration: none; transition: all 0.2s; }
+        .sidebar-tag:hover { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+        #blog-list-loading { text-align: center; padding: 60px 0; color: #718096; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="tmp-header-area-start header-one header--sticky header--transparent">
+        <div class="container">
+            <div class="row"><div class="col-lg-12">
+                <div class="header-content">
+                    <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color:#1a202c;letter-spacing:1px;">SS</span></a></div>
+                    <nav class="tmp-mainmenu-nav d-none d-xl-block">
+                        <ul class="tmp-mainmenu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="experience.html">Experience</a></li>
+                            <li><a href="skills.html">Skills</a></li>
+                            <li><a href="awards.html">Awards</a></li>
+                            <li class="current"><a href="blog.html">Blog</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                    <div class="tmp-header-right">
+                        <div class="social-share-wrapper d-none d-md-block">
+                            <div class="social-link">
+                                <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                            </div>
+                        </div>
+                        <div class="actions-area">
+                            <div class="tmp-side-collups-area d-none d-xl-block">
+                                <button class="tmp-menu-bars tmp_button_active"><i class="fa-regular fa-bars-staggered"></i></button>
+                            </div>
+                            <div class="tmp-side-collups-area d-block d-xl-none">
+                                <button class="tmp-menu-bars humberger_menu_active"><i class="fa-regular fa-bars-staggered"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        </div>
+    </header>
+
+    <!-- SIDEBAR PANEL -->
+    <div class="d-none d-xl-block">
+        <div class="tmp-sidebar-area tmp_side_bar">
+            <div class="inner">
+                <div class="top-area">
+                    <span style="font-size:18px;font-weight:800;color:#1a202c;">Sanjay Sharma</span>
+                    <div class="close-icon-area"><button class="tmp-round-action-btn close_side_menu_active"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
+                </div>
+                <div class="content-wrapper">
+                    <img src="assets/images/banner/profile_pic.png" alt="Sanjay Sharma" style="border-radius:50%;width:90px;height:90px;object-fit:cover;margin-bottom:16px;">
+                    <h5 class="title mt--10">Senior Manager – Investment Banking & Asset Management</h5>
+                    <p class="disc">14+ years in GIPS, Performance Measurement & Operations Leadership.</p>
+                    <div class="short-contact-area">
+                        <div class="single-contact"><i class="fa-solid fa-envelope"></i><div class="information tmp-link-animation"><span>Email</span><a href="mailto:Sanjumartin2014@gmail.com" class="number">Sanjumartin2014@gmail.com</a></div></div>
+                        <div class="single-contact"><i class="fa-solid fa-location-crosshairs"></i><div class="information tmp-link-animation"><span>Location</span><span class="number">Faridabad, Haryana, India</span></div></div>
+                    </div>
+                    <div class="social-wrapper mt--20">
+                        <span class="subtitle">Connect with me</span>
+                        <div class="social-link">
+                            <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="overlay_close_side_menu close_side_menu_active" href="javascript:void(0);"></a>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="d-block d-xl-none">
+        <div class="tmp-popup-mobile-menu">
+            <div class="inner">
+                <div class="header-top">
+                    <span style="font-size:18px;font-weight:800;color:#1a202c;">Sanjay Sharma</span>
+                    <div class="close-menu"><button class="close-button tmp-round-action-btn"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
+                </div>
+                <ul class="tmp-mainmenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="awards.html">Awards</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="social-wrapper mt--40">
+                    <span class="subtitle">Connect</span>
+                    <div class="social-link">
+                        <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE BANNER -->
+    <div class="page-banner">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Blog</li>
+                </ol>
+            </nav>
+            <h1 style="font-size:36px;font-weight:800;color:#1a202c;margin:10px 0 6px;">Blog</h1>
+            <p style="color:#718096;font-size:15px;margin-bottom:24px;">Insights on GIPS, Performance Measurement, Investment Banking & Operations.</p>
+        </div>
+    </div>
+
+    <!-- BLOG CONTENT -->
+    <div class="container tmp-section-gap">
+        <div class="row g-4">
+
+            <!-- POSTS COLUMN -->
+            <div class="col-lg-8">
+                <div id="blog-list-loading">
+                    <i class="fa-regular fa-spinner fa-spin" style="font-size:28px;color:var(--color-primary);"></i>
+                    <p style="margin-top:12px;">Loading posts…</p>
+                </div>
+                <div id="blog-list"></div>
+            </div>
+
+            <!-- SIDEBAR COLUMN -->
+            <div class="col-lg-4">
+                <aside class="blog-sidebar">
+
+                    <!-- About Widget -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">About</div>
+                        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px;">
+                            <img src="assets/images/banner/profile_pic.png" alt="Sanjay Sharma" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--color-primary);">
+                            <div>
+                                <div style="font-weight:700;color:#1a202c;font-size:15px;">Sanjay Sharma</div>
+                                <div style="font-size:12px;color:#718096;">Senior Manager – Investment Banking</div>
+                            </div>
+                        </div>
+                        <p style="font-size:13px;color:#4a5568;line-height:1.7;margin:0;">14+ years in GIPS Compliance, Performance Measurement, and Operations Leadership across global investment firms.</p>
+                    </div>
+
+                    <!-- Recent Posts Widget -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">Recent Posts</div>
+                        <ul class="sidebar-recent-list" id="sidebar-recent"></ul>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">Categories</div>
+                        <ul class="sidebar-categories" id="sidebar-categories"></ul>
+                    </div>
+
+                    <!-- Tags Widget -->
+                    <div class="sidebar-widget">
+                        <div class="widget-title">Tags</div>
+                        <div class="sidebar-tags" id="sidebar-tags"></div>
+                    </div>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer-area footer-style-one-wrapper tmp-section-gap">
+        <div class="container">
+            <div class="footer-main footer-style-one">
+                <div class="row g-5">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="single-footer-wrapper border-right mr--20">
+                            <div class="logo mb--20"><a href="index.html" style="text-decoration:none;"><span style="font-size:24px;font-weight:800;color:#1a202c;">Sanjay Sharma</span></a></div>
+                            <p class="description" style="font-size:14px;color:#888888;">Senior Manager — Investment Banking & Asset Management.<br>14+ years of global expertise in GIPS & Operations.</p>
+                            <div class="social-link mt--20">
+                                <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="mailto:Sanjumartin2014@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="single-footer-wrapper quick-link-wrap">
+                            <h5 class="ft-title">Quick Links</h5>
+                            <ul class="ft-link tmp-link-animation">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="about.html">About Me</a></li>
+                                <li><a href="experience.html">Experience</a></li>
+                                <li><a href="skills.html">Skills</a></li>
+                                <li><a href="awards.html">Awards</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="single-footer-wrapper contact-wrap">
+                            <h5 class="ft-title">Contact</h5>
+                            <ul class="ft-link tmp-link-animation">
+                                <li><span class="ft-icon"><i class="fa-solid fa-envelope"></i></span><a href="mailto:Sanjumartin2014@gmail.com">Sanjumartin2014@gmail.com</a></li>
+                                <li><span class="ft-icon"><i class="fa-solid fa-location-dot"></i></span>Faridabad, Haryana, India</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);margin-top:40px;padding-top:24px;text-align:center;">
+                <p style="font-size:13px;color:rgba(255,255,255,0.35);margin:0;">&copy; 2026 Sanjay Sharma. All Rights Reserved.</p>
+            </div>
+        </div>
+        <div class="footer-bg-img"><img src="assets/images/footer/footer-bg-img.png" alt=""></div>
+    </footer>
+
+    <div class="tmp-progress-parent"><svg class="tmp-back-circle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102"><path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"/></svg></div>
+
+    <script src="site-data.js"></script>
+    <script src="assets/js/vendor/jquery.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/populate-site-data.js"></script>
+
+    <script>
+    (function () {
+        function formatDate(iso) {
+            const d = new Date(iso);
+            return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        fetch('blogs/index.json')
+            .then(r => r.json())
+            .then(posts => {
+                // Sort newest first
+                posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                // Render post cards
+                const list = document.getElementById('blog-list');
+                document.getElementById('blog-list-loading').style.display = 'none';
+                posts.forEach(post => {
+                    const tags = post.tags.map(t => `<span class="blog-tag">${t}</span>`).join('');
+                    list.innerHTML += `
+                        <article class="blog-card">
+                            <div class="blog-meta">
+                                <span class="blog-category">${post.category}</span>
+                                <span class="blog-date"><i class="fa-regular fa-calendar" style="margin-right:4px;"></i>${formatDate(post.date)}</span>
+                                <span class="blog-read-time"><i class="fa-regular fa-clock" style="margin-right:4px;"></i>${post.readTime} read</span>
+                            </div>
+                            <h3><a href="blog-post.html?post=${post.slug}">${post.title}</a></h3>
+                            <p class="blog-desc">${post.description}</p>
+                            <div class="blog-tags">${tags}</div>
+                            <a class="read-more" href="blog-post.html?post=${post.slug}">Read Article <i class="fa-sharp fa-regular fa-arrow-right"></i></a>
+                        </article>`;
+                });
+
+                // Sidebar: recent posts (top 3)
+                const recentEl = document.getElementById('sidebar-recent');
+                posts.slice(0, 3).forEach(post => {
+                    recentEl.innerHTML += `
+                        <li>
+                            <a href="blog-post.html?post=${post.slug}">${post.title}</a>
+                            <div class="post-date">${formatDate(post.date)}</div>
+                        </li>`;
+                });
+
+                // Sidebar: categories with counts
+                const catMap = {};
+                posts.forEach(p => { catMap[p.category] = (catMap[p.category] || 0) + 1; });
+                const catEl = document.getElementById('sidebar-categories');
+                Object.entries(catMap).sort().forEach(([cat, count]) => {
+                    catEl.innerHTML += `
+                        <li>
+                            <a href="#">${cat}</a>
+                            <span class="cat-count">${count}</span>
+                        </li>`;
+                });
+
+                // Sidebar: unique tags
+                const allTags = [...new Set(posts.flatMap(p => p.tags))].sort();
+                const tagsEl = document.getElementById('sidebar-tags');
+                allTags.forEach(tag => {
+                    tagsEl.innerHTML += `<a href="#" class="sidebar-tag">${tag}</a>`;
+                });
+            })
+            .catch(() => {
+                document.getElementById('blog-list-loading').innerHTML = '<p style="color:#e53e3e;">Could not load blog posts.</p>';
+            });
+    })();
+    </script>
+</body>
+</html>
