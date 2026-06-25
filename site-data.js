@@ -21,13 +21,13 @@ const SiteData = {
     /* ─── PERSONAL INFO ───────────────────────────────── */
     personal: {
         name:           "Sanjay Sharma",
-        initials:       "SS",
+        initials:       "Sanjay Sharma",
         tagline:        "Senior Manager – Investment Banking & Asset Management",
         summary:        "Highly accomplished and results-driven Senior Process Manager with 14+ years of experience in the Investment Banking Service Industry, specialising in Asset Management, Performance Measurement, GIPS Compliance, and Operations Leadership.",
         phone:          "",
         email:          "sanjumartin2014@gmail.com",
         linkedin:       "https://www.linkedin.com/in/sanjay-sharma-5072b68a/",
-        address:        "T4-608, RPS Savana, Faridabad-88, Haryana, India",
+        address:        "Faridabad-88, Haryana, India",
         dob:            "14 May 1988",
         gender:         "Male",
         maritalStatus:  "Married",

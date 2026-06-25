@@ -25,11 +25,11 @@
         .award-card:hover { border-color:var(--color-primary); transform:translateY(-5px); }
         .award-card .award-icon { font-size:36px; color:var(--color-primary); margin-bottom:16px; }
         .award-card .award-year { font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--color-primary); margin-bottom:10px; }
-        .award-card h3 { font-size:20px; font-weight:700; color: #fff; margin-bottom:10px; }
+        .award-card h3 { font-size:20px; font-weight:700; color: #1a202c; margin-bottom:10px; }
         .award-card .award-org { font-size:13px; color: #999999; }
         .award-card .award-desc { font-size:14px; color: #777777; margin-top:12px; line-height:1.7; }
         .highlight-banner { background:linear-gradient(135deg,rgba(233,77,53,0.12),rgba(233,77,53,0.04)); border:1px solid rgba(233,77,53,0.25); border-radius:16px; padding:40px; margin-bottom:60px; }
-        .highlight-banner h3 { color: #fff; font-size:22px; font-weight:700; margin-bottom:12px; }
+        .highlight-banner h3 { color: #1a202c; font-size:22px; font-weight:700; margin-bottom:12px; }
         .highlight-banner p { color: #777777; font-size:15px; margin:0; }
     </style>
 </head>
@@ -39,7 +39,7 @@
     <header class="tmp-header-area-start header-one header--sticky header--transparent">
         <div class="container"><div class="row"><div class="col-lg-12">
             <div class="header-content">
-                <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color: #fff;letter-spacing:1px;">SS</span></a></div>
+                <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color: #1a202c;letter-spacing:1px;">SS</span></a></div>
                 <nav class="tmp-mainmenu-nav d-none d-xl-block">
                     <ul class="tmp-mainmenu">
                         <li><a href="index.html">Home</a></li>
@@ -68,7 +68,7 @@
     <div class="d-none d-xl-block">
         <div class="tmp-sidebar-area tmp_side_bar">
             <div class="inner">
-                <div class="top-area"><span style="font-size:18px;font-weight:800;color: #fff;">Sanjay Sharma</span>
+                <div class="top-area"><span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                     <div class="close-icon-area"><button class="tmp-round-action-btn close_side_menu_active"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <div class="content-wrapper">
@@ -90,7 +90,7 @@
     <!-- MOBILE MENU -->
     <div class="d-block d-xl-none">
         <div class="tmp-popup-mobile-menu"><div class="inner">
-            <div class="header-top"><span style="font-size:18px;font-weight:800;color: #fff;">Sanjay Sharma</span>
+            <div class="header-top"><span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                 <div class="close-menu"><button class="close-button tmp-round-action-btn"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
             </div>
             <ul class="tmp-mainmenu">
@@ -118,7 +118,7 @@
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">Awards</li>
             </ol></nav>
-            <h1 class="title" style="font-size:48px;font-weight:800;color: #fff;margin:0;">Awards &amp; Recognition</h1>
+            <h1 class="title" style="font-size:48px;font-weight:800;color: #1a202c;margin:0;">Awards &amp; Recognition</h1>
         </div>
     </div>
 
@@ -156,7 +156,7 @@
                 <div class="row g-5">
                     <div class="col-lg-5 col-md-6">
                         <div class="single-footer-wrapper border-right mr--20">
-                            <div class="logo mb--20"><span style="font-size:24px;font-weight:800;color: #fff;">Sanjay Sharma</span></div>
+                            <div class="logo mb--20"><a href="index.html" style="text-decoration:none;"><span style="font-size:24px;font-weight:800;color: #1a202c;">Sanjay Sharma</span></a></div>
                             <p class="description" style="font-size:14px;color: #888888;">Senior Manager — Investment Banking & Asset Management.</p>
                             <div class="social-link mt--20">
                                 <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -200,6 +200,9 @@
 
     <script src="assets/js/vendor/jquery.js"></script>
     <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <!-- Site Data - Load First -->
+    <script src="site-data.js"></script>
+
     <script src="assets/js/vendor/waypoints.min.js"></script>
     <script src="assets/js/vendor/appear.js"></script>
     <script src="assets/js/plugins/gsap.js"></script>
@@ -210,12 +213,16 @@
     <script src="assets/js/vendor/wow.min.js"></script>
     <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="site-data.js"></script>
+
+    <!-- Auto-populate contact info from site-data.js -->
+    <script src="assets/js/populate-site-data.js"></script>
     <script>
         const awardIcons = ['fa-lightbulb','fa-medal','fa-handshake','fa-star','fa-rocket','fa-crown','fa-trophy','fa-award'];
         const awardsList = document.getElementById('awards-list');
         if (awardsList && typeof SiteData !== 'undefined') {
-            awardsList.innerHTML = SiteData.awards.map((a, i) => `
+            // Reverse the array to show latest first
+            const reversedAwards = [...SiteData.awards].reverse();
+            awardsList.innerHTML = reversedAwards.map((a, i) => `
                 <div class="col-lg-4 col-md-6">
                     <div class="award-card">
                         <div class="award-icon"><i class="fa-solid ${awardIcons[i % awardIcons.length]}"></i></div>

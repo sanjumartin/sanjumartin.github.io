@@ -23,9 +23,9 @@
         .tool-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:24px; text-align:center; transition:border-color .3s,transform .3s; }
         .tool-card:hover { border-color:var(--color-primary); transform:translateY(-4px); }
         .tool-card i { font-size:28px; color:var(--color-primary); margin-bottom:12px; display:block; }
-        .tool-card h5 { font-size:14px; color: #fff; font-weight:600; margin:0; }
+        .tool-card h5 { font-size:14px; color: #1a202c; font-weight:600; margin:0; }
         .core-skill-tag { display:inline-block; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:30px; padding:8px 20px; font-size:14px; color:rgba(255,255,255,0.8); margin:6px 5px; transition:background .3s,border-color .3s; }
-        .core-skill-tag:hover { background:var(--color-primary); border-color:var(--color-primary); color: #fff; }
+        .core-skill-tag:hover { background:var(--color-primary); border-color:var(--color-primary); color: #1a202c; }
     </style>
 </head>
 <body>
@@ -34,7 +34,7 @@
     <header class="tmp-header-area-start header-one header--sticky header--transparent">
         <div class="container"><div class="row"><div class="col-lg-12">
             <div class="header-content">
-                <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color: #fff;letter-spacing:1px;">SS</span></a></div>
+                <div class="logo"><a href="index.html"><span style="font-size:22px;font-weight:800;color: #1a202c;letter-spacing:1px;">SS</span></a></div>
                 <nav class="tmp-mainmenu-nav d-none d-xl-block">
                     <ul class="tmp-mainmenu">
                         <li><a href="index.html">Home</a></li>
@@ -63,7 +63,7 @@
     <div class="d-none d-xl-block">
         <div class="tmp-sidebar-area tmp_side_bar">
             <div class="inner">
-                <div class="top-area"><span style="font-size:18px;font-weight:800;color: #fff;">Sanjay Sharma</span>
+                <div class="top-area"><span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                     <div class="close-icon-area"><button class="tmp-round-action-btn close_side_menu_active"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
                 </div>
                 <div class="content-wrapper">
@@ -85,7 +85,7 @@
     <!-- MOBILE MENU -->
     <div class="d-block d-xl-none">
         <div class="tmp-popup-mobile-menu"><div class="inner">
-            <div class="header-top"><span style="font-size:18px;font-weight:800;color: #fff;">Sanjay Sharma</span>
+            <div class="header-top"><span style="font-size:18px;font-weight:800;color: #1a202c;">Sanjay Sharma</span>
                 <div class="close-menu"><button class="close-button tmp-round-action-btn"><i class="fa-sharp fa-light fa-xmark"></i></button></div>
             </div>
             <ul class="tmp-mainmenu">
@@ -113,7 +113,7 @@
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                 <li class="breadcrumb-item active">Skills</li>
             </ol></nav>
-            <h1 class="title" style="font-size:48px;font-weight:800;color: #fff;margin:0;">Skills &amp; Proficiency</h1>
+            <h1 class="title" style="font-size:48px;font-weight:800;color: #1a202c;margin:0;">Skills &amp; Proficiency</h1>
         </div>
     </div>
 
@@ -259,7 +259,7 @@
                 <div class="row g-5">
                     <div class="col-lg-5 col-md-6">
                         <div class="single-footer-wrapper border-right mr--20">
-                            <div class="logo mb--20"><span style="font-size:24px;font-weight:800;color: #fff;">Sanjay Sharma</span></div>
+                            <div class="logo mb--20"><a href="index.html" style="text-decoration:none;"><span style="font-size:24px;font-weight:800;color: #1a202c;">Sanjay Sharma</span></a></div>
                             <p class="description" style="font-size:14px;color: #888888;">Senior Manager — Investment Banking & Asset Management.</p>
                             <div class="social-link mt--20">
                                 <a href="https://www.linkedin.com/in/sanjay-sharma-5072b68a/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -303,6 +303,9 @@
 
     <script src="assets/js/vendor/jquery.js"></script>
     <script src="assets/js/vendor/jquery-ui.min.js"></script>
+    <!-- Site Data - Load First -->
+    <script src="site-data.js"></script>
+
     <script src="assets/js/vendor/waypoints.min.js"></script>
     <script src="assets/js/vendor/appear.js"></script>
     <script src="assets/js/plugins/gsap.js"></script>
@@ -313,5 +316,8 @@
     <script src="assets/js/vendor/wow.min.js"></script>
     <script src="assets/js/vendor/jquery-one-page-nav.js"></script>
     <script src="assets/js/main.js"></script>
+
+    <!-- Auto-populate contact info from site-data.js -->
+    <script src="assets/js/populate-site-data.js"></script>
 </body>
 </html>

@@ -24,7 +24,8 @@
 /* ── All about-us-card: consistent design & hover effect across all pages ── */
 .about-us-card {
     border-radius: 20px !important;
-    background: var(--color-gray-2) !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     padding: 40px 30px !important;
     transition: all 0.3s ease !important;
 }
@@ -52,7 +53,7 @@
     content: "" !important;
     position: absolute !important;
     inset: 2px !important;
-    background: var(--color-gray-2) !important;
+    background: #ffffff !important;
     border-radius: 20px !important;
 }
 .about-us-card.tmponhover > * {
@@ -62,7 +63,8 @@
 .about-us-card:hover,
 .about-us-card.tmponhover:hover {
     transform: translateY(-4px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 8px 24px rgba(62, 180, 137, 0.2) !important;
+    border-color: var(--color-primary) !important;
 }
 .about-us-card .card-head {
     display: flex !important;
@@ -95,7 +97,7 @@
     transition: all 0.3s ease !important;
 }
 .about-us-card .card-para {
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: #4a5568 !important;
     font-family: var(--font-secondary) !important;
     font-size: 16px !important;
     font-weight: 400 !important;
@@ -107,8 +109,8 @@
 .contact-info-block.tmponhover {
     position: relative !important;
     overflow: hidden !important;
-    background: var(--color-gray-2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     transform: none !important;
     transition: all 0.3s ease !important;
 }
@@ -132,7 +134,7 @@
     content: "" !important;
     position: absolute !important;
     inset: 2px !important;
-    background: var(--color-gray-2) !important;
+    background: #ffffff !important;
     border-radius: 12px !important;
 }
 .contact-info-block.tmponhover > * {
@@ -142,7 +144,7 @@
 .contact-info-block.tmponhover:hover {
     border-color: var(--color-primary) !important;
     transform: translateY(-4px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 1, 79, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(62, 180, 137, 0.2), 0 0 0 1px rgba(62, 180, 137, 0.3) !important;
 }
 .contact-info-block.tmponhover:hover .ci-icon {
     transform: scale(1.05) !important;
@@ -152,11 +154,12 @@
 }
 
 /* ── Experience education/training cards: match Home card hover ── */
-.resume-widget .resume-single.tmponhover {
+.resume-widget .resume-single.tmponhover,
+.exp-card {
     position: relative !important;
     overflow: hidden !important;
-    background: var(--color-gray-2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 20px !important;
     transition: all 0.3s ease !important;
 }
@@ -173,10 +176,11 @@
     position: relative !important;
     z-index: 1 !important;
 }
-.resume-widget .resume-single.tmponhover:hover {
+.resume-widget .resume-single.tmponhover:hover,
+.exp-card:hover {
     border-color: var(--color-primary) !important;
     transform: translateY(-4px) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 1, 79, 0.2) !important;
+    box-shadow: 0 8px 24px rgba(62, 180, 137, 0.2), 0 0 0 1px rgba(62, 180, 137, 0.3) !important;
 }
 .resume-widget .resume-single.tmponhover:hover .time {
     color: var(--color-primary) !important;
@@ -187,6 +191,433 @@ body, h1, h2, h3, h4, h5, h6,
 p, a, span, li, td, th,
 input, textarea, button, select {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* ── Global text color overrides for light theme ── */
+h1, h2, h3, h4, h5, h6,
+.title, .heading, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #1a202c !important;
+}
+
+p, span, li, td, th, .disc, .description {
+    color: #2d3748 !important;
+}
+
+/* ── Menu and navigation text ── */
+.tmp-mainmenu a {
+    color: #1a202c !important;
+}
+.tmp-mainmenu a:hover,
+.tmp-mainmenu .current a {
+    color: var(--color-primary) !important;
+}
+
+/* ── Logo text ── */
+.logo span {
+    color: #1a202c !important;
+}
+
+/* ── Sidebar text colors ── */
+.tmp-sidebar-area .top-area span {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.tmp-sidebar-area .title,
+.tmp-sidebar-area .disc,
+.tmp-sidebar-area .subtitle {
+    color: #1a202c !important;
+}
+
+.tmp-sidebar-area .short-contact-area span {
+    color: #4a5568 !important;
+}
+
+/* ── Mobile menu text ── */
+.tmp-popup-mobile-menu .header-top span,
+.tmp-popup-mobile-menu .tmp-mainmenu a,
+.tmp-popup-mobile-menu .subtitle {
+    color: #1a202c !important;
+}
+
+/* ── Sidebar background ── */
+.tmp-sidebar-area .inner {
+    background: #ffffff !important;
+    border-left: 1px solid #e2e8f0 !important;
+}
+
+.tmp-sidebar-area .inner .top-area {
+    background: var(--color-primary) !important;
+    background: linear-gradient(135deg, #3EB489 0%, #5BC9A1 100%) !important;
+}
+
+.tmp-sidebar-area .top-area .close-icon-area button,
+.tmp-sidebar-area .top-area .close-icon-area button i {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.tmp-sidebar-area .top-area .close-icon-area button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: #ffffff !important;
+}
+
+/* ── Mobile menu background ── */
+.tmp-popup-mobile-menu .inner {
+    background: #ffffff !important;
+}
+
+/* ── Banner hero section - subtle green gradient ── */
+.rpp-banner-two-area {
+    background: linear-gradient(135deg, #fafcfb 0%, #f5faf8 50%, #f0f8f5 100%) !important;
+    position: relative !important;
+}
+
+.rpp-banner-two-area::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background:
+        radial-gradient(ellipse at 10% 20%, rgba(62, 180, 137, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 80%, rgba(91, 201, 161, 0.03) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    display: block !important;
+}
+
+.rpp-banner-two-area .container {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* ── Hide decorative background elements on homepage banner only ── */
+.rpp-banner-two-area .benner-two-bg-red-img,
+.rpp-banner-two-area .banner-shape-two,
+.rpp-banner-two-area .banner-shape-img-bg,
+.rpp-banner-two-area [class*="bg-vactor"] {
+    display: none !important;
+}
+
+.banner-two-main-wrapper .inner .sub-title {
+    color: #4a5568 !important;
+}
+
+.banner-two-main-wrapper .inner .heading-title {
+    color: #1a202c !important;
+}
+
+/* ── Social links hover - consistent across navbar, footer, sidebar ── */
+.social-link a,
+.footer-area .social-link a,
+.tmp-header-area .social-link a,
+.tmp-sidebar-area .social-link a {
+    color: #1a202c !important;
+    border-color: #e2e8f0 !important;
+    background: transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+.social-link a:hover,
+.footer-area .social-link a:hover,
+.tmp-header-area .social-link a:hover,
+.tmp-sidebar-area .social-link a:hover {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(62, 180, 137, 0.3) !important;
+}
+
+/* ── Section titles and headings ── */
+.section-head .title,
+.section-head .heading,
+.section-title {
+    color: #1a202c !important;
+}
+
+.section-head .description {
+    color: #4a5568 !important;
+}
+
+/* ── Footer ── */
+.footer-area {
+    background: #f8f9fa !important;
+    border-top: 1px solid #e2e8f0 !important;
+}
+
+.footer-area p,
+.footer-area span,
+.footer-area a {
+    color: #4a5568 !important;
+}
+
+.footer-area a:hover {
+    color: var(--color-primary) !important;
+}
+
+/* ── Footer logo link hover ── */
+.footer-area .logo a:hover span {
+    color: var(--color-primary) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* ── Forms and inputs ── */
+.input-field,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #1a202c !important;
+}
+
+.input-field:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus {
+    border-color: var(--color-primary) !important;
+}
+
+/* ── Buttons primary color ── */
+.tmp-btn,
+.tmp-button,
+button.primary,
+.download-resume-btn {
+    background: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+.tmp-btn:hover,
+.tmp-button:hover,
+button.primary:hover {
+    background: var(--color-primary-4th) !important;
+}
+
+/* ── Stats and counters ── */
+.stat-box {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.stat-box .stat-num,
+.stat-box .stat-num .odometer,
+.stat-box .stat-num span {
+    color: #1a202c !important;
+}
+
+.stat-box .stat-label {
+    color: #718096 !important;
+}
+
+/* ── Hero badges ── */
+.hero-badge {
+    border-color: #e2e8f0 !important;
+    color: #4a5568 !important;
+    background: #ffffff !important;
+}
+
+/* ── Skills, tags, and badges ── */
+.core-skill-tag {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #2d3748 !important;
+}
+
+.core-skill-tag:hover {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+/* ── Service/Feature cards ── */
+.service-item,
+.feature-card,
+.portfolio-item {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.service-item:hover,
+.feature-card:hover,
+.portfolio-item:hover {
+    border-color: var(--color-primary) !important;
+    box-shadow: 0 8px 24px rgba(62, 180, 137, 0.2) !important;
+}
+
+/* ── Timeline and resume elements ── */
+.resume-single,
+.timeline-item {
+    color: #2d3748 !important;
+}
+
+.resume-single .title,
+.timeline-item .title {
+    color: #1a202c !important;
+}
+
+.resume-single .time,
+.timeline-item .date {
+    color: #718096 !important;
+}
+
+/* ── Tables ── */
+.personal-info-table td {
+    color: #2d3748 !important;
+}
+
+.personal-info-table td:first-child {
+    color: #1a202c !important;
+}
+
+/* ── Breadcrumbs ── */
+.breadcrumb-item {
+    color: #718096 !important;
+}
+
+.breadcrumb-item a {
+    color: #718096 !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--color-primary) !important;
+}
+
+/* ── Links general ── */
+a {
+    color: var(--color-primary) !important;
+    transition: all 0.3s ease !important;
+}
+
+a:hover {
+    color: var(--color-primary-4th) !important;
+}
+
+/* ── Progress bars ── */
+.progress-bar {
+    background: var(--color-primary) !important;
+}
+
+.progress {
+    background: #e2e8f0 !important;
+}
+
+/* ── Key Career Highlights Banner - Subtle Gradient ── */
+.highlight-banner {
+    background: linear-gradient(135deg, #f0f8f5 0%, #e8f5f0 50%, #d4f1e8 100%) !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    margin-bottom: 50px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+.highlight-banner h3 {
+    color: #1a202c !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 15px !important;
+}
+
+.highlight-banner p {
+    color: #2d3748 !important;
+    margin-bottom: 0 !important;
+    line-height: 1.7 !important;
+}
+
+.highlight-banner .fa-trophy {
+    color: var(--color-primary) !important;
+}
+
+/* ── Awards and achievement cards ── */
+.award-item,
+.achievement-card,
+.award-card {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    transition: all 0.3s ease !important;
+}
+
+.award-card:hover {
+    border-color: var(--color-primary) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 24px rgba(62, 180, 137, 0.2), 0 0 0 1px rgba(62, 180, 137, 0.3) !important;
+}
+
+/* ── Contact info blocks ── */
+.contact-info-block {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+
+.contact-info-block .ci-icon {
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+    border: 2px solid #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    font-size: 20px !important;
+    color: #1a202c !important;
+    transition: all 0.3s ease !important;
+}
+
+.contact-info-block:hover .ci-icon {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+    transform: scale(1.1) !important;
+}
+
+/* ── Overlay and modal backgrounds ── */
+.overlay_close_side_menu {
+    background: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* ── Banner big text (decorative) - hide completely ── */
+.banner-big-text-1,
+.banner-big-text-2 {
+    display: none !important;
+}
+
+/* ── Brand green text highlight ── */
+.text-brand-green,
+.title .text-brand-green,
+h1 .text-brand-green,
+h2 .text-brand-green,
+h3 .text-brand-green,
+h4 .text-brand-green,
+h5 .text-brand-green,
+h6 .text-brand-green,
+.section-head .title .text-brand-green {
+    color: #3EB489 !important;
+}
+
+/* ── Hero animated text (rotating titles) - brand green ── */
+.header-caption,
+.header-caption .cd-words-wrapper b,
+.header-caption .theme-gradient,
+.cd-words-wrapper b.theme-gradient {
+    color: var(--color-primary) !important;
+    background: var(--text-gradient-one) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* ── Ensure the loading bar under animated text is also green ── */
+.cd-headline.clip .cd-words-wrapper::after,
+.cd-headline.loading-bar .cd-words-wrapper::after {
+    background-color: var(--color-primary) !important;
 }
 
 /* ── Tighten section gaps (template default is 120px — too much) ── */
@@ -213,9 +644,13 @@ input, textarea, button, select {
     display: block;
 }
 
-/* ── Clip decorative absolute pseudo-elements so they can't push scroll height ── */
-[class*="bg-vactor"]::after,
-[class*="bg-vactor"]::before {
+/* ── Hide decorative pseudo-elements on homepage banner only ── */
+.rpp-banner-two-area [class*="bg-vactor"]::after,
+.rpp-banner-two-area [class*="bg-vactor"]::before,
+.rpp-banner-two-area .banner-two-main-wrapper::before,
+.rpp-banner-two-area .banner-two-main-wrapper::after,
+.rpp-banner-two-area .banner-right-content::before,
+.rpp-banner-two-area .banner-right-content::after {
     display: none !important;
 }
 
@@ -298,28 +733,28 @@ div.tmp-section-gap:last-of-type {
     right: 0;
     width: 100%;
     z-index: 9999;
-    background: rgba(15, 15, 15, 0.96) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid #e2e8f0;
     transition: background 0.3s ease;
 }
 
 /* ── Inner page hero bar – tight compact strip ── */
 .page-banner {
     padding: 90px 0 22px !important;
-    background: linear-gradient(135deg, rgba(20,20,20,1) 60%, rgba(233,77,53,0.15) 100%) !important;
-    border-bottom: 1px solid rgba(255,255,255,0.06) !important;
+    background: linear-gradient(135deg, #f8f9fa 60%, rgba(62, 180, 137, 0.1) 100%) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
 }
 .page-banner .breadcrumb-item a {
-    color: rgba(255,255,255,0.5) !important;
+    color: #718096 !important;
     text-decoration: none !important;
 }
 .page-banner .breadcrumb-item.active {
     color: var(--color-primary) !important;
 }
 .page-banner .breadcrumb-item + .breadcrumb-item::before {
-    color: rgba(255,255,255,0.3) !important;
+    color: #cbd5e0 !important;
 }
 
 /* ── Contact page overlap fix ──
@@ -346,4 +781,12 @@ div.tmp-section-gap:last-of-type {
 .contact-form-wrapper .form-group .input-field {
     width: 100% !important;
     display: block !important;
+}
+
+/* ── IMPORTANT: Force brand green text on experience page title ── */
+.text-brand-green,
+h2.text-brand-green,
+.title.text-brand-green,
+.section-head .title.text-brand-green {
+    color: #3EB489 !important;
 }
