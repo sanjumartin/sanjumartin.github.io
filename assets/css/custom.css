@@ -442,6 +442,31 @@ button.primary:hover {
     color: #ffffff !important;
 }
 
+/* ── Blog post tags: match core-skill-tag style ── */
+.post-tag {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #2d3748 !important;
+}
+
+.post-tag:hover {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+.sidebar-tag {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #2d3748 !important;
+}
+
+.sidebar-tag:hover {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
 /* ── Service/Feature cards ── */
 .service-item,
 .feature-card,
